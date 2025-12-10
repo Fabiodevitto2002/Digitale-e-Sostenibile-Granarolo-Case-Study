@@ -1,0 +1,324 @@
+/* =========================================================
+   STILE PRINCIPALE - Pagina Web Sostenibilità Granarolo
+   ========================================================= */
+
+/* -------------------------
+   Variabili & Reset
+-------------------------- */
+:root {
+  --bg: #fbfdfa;
+  --card: #ffffff;
+  --accent: #5AC7BE;
+  --accent-dark: #4fb1a9;
+  --muted: #4d4d4d;
+  --radius: 10px;
+  --maxw: 1100px;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #222;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* -------------------------
+   Container generale
+-------------------------- */
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+/* =========================================================
+   HEADER + NAVBAR
+   ========================================================= */
+
+.site-header {
+  background: linear-gradient(180deg, var(--accent), #5AC7BE);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.header-container,
+.header-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* LOGO ← → MENU */
+}
+
+/* Logo */
+.header-logo,
+.logo {
+  width: 180px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+/* Navbar */
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.nav-list a:hover {
+  color: #003822;
+}
+
+/* =========================================================
+   HERO FULLSCREEN + SLIDER
+   ========================================================= */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Slider */
+.slider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: slideShow 18s infinite;
+}
+
+.slide1 { background-image: url("/img/incarnato_primo_piano.jpg"); animation-delay: 0s; }
+.slide2 { background-image: url("/img/Marketing_foto_product.jpg"); animation-delay: 6s; }
+.slide3 { background-image: url("/img/primo_piano_latte.jpg"); animation-delay: 12s; }
+
+@keyframes slideShow {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  30% { opacity: 1; }
+  40% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Testo Hero */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  text-shadow: 0px 4px 12px rgba(0,0,0,0.75);
+  z-index: 10;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.3rem;
+}
+
+.hero-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background-color: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  transition: background 0.3s;
+}
+
+.hero-button:hover {
+  background-color: var(--accent-dark);
+}
+
+/* =========================================================
+   CARD SECTION
+   ========================================================= */
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin: 1rem 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+h2 {
+  margin-top: 0;
+  color: var(--accent);
+  border-bottom: 2px solid rgba(0,0,0,0.03);
+  padding-bottom: 0.45rem;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.download-btn {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+  transition: background 200ms ease, transform 120ms ease;
+}
+
+.download-btn:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   PULSANTE DI RITORNO ALL'HEADER
+   ========================================================= */
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+
+    background: var(--accent);
+    color: white;
+    font-size: 1.7rem;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: 0.3s;
+    z-index: 9999;
+}
+
+.back-to-top:hover {
+    background: var(--accent-dark);
+    transform: translateY(-4px);
+}
+
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  background-color: #f2f2f2;
+  padding: 30px 0;
+  text-align: center;
+  border-top: 1px solid #dcdcdc;
+  margin-top: 40px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  width: 180px;
+  height: auto;
+  opacity: 0.95;
+}
+
+.footer-text {
+  font-size: 14px;
+  color: #4d4d4d;
+  margin: 0;
+}
+
+/* =========================================================
+   MEDIA QUERY RESPONSIVE (ACCORPATE)
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .header-logo {
+    width: 100px;
+  }
+
+  .nav-list {
+    gap: 14px;
+  }
+
+  .nav-list a {
+    font-size: 0.9rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 720px) {
+
+  .container {
+    padding: 0.75rem;
+  }
+
+  .download-btn {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+  }
+}
